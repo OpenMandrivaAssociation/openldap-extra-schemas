@@ -3,7 +3,7 @@
 Name: openldap-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.0
-Release: %mkrel 1
+Release: %mkrel 2
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -29,6 +29,7 @@ Source11: samba.schema
 Source12: sudo.schema
 # from MIT krb5-1.6.x:
 Source13: MIT-kerberos.schema
+Source14: rfc2307bis.schema
 URL: http://www.openldap.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
@@ -51,6 +52,4 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{schema_dir}/*.schema
-
-
 
