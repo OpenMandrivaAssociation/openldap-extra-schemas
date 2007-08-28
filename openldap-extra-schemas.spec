@@ -33,6 +33,8 @@ Source14: rfc2307bis.schema
 # from openssh-lpk patch at http://dev.inversepath.com/trac/openssh-lpk
 Source15: http://dev.inversepath.com/openssh-lpk/openssh-lpk_openldap.schema
 Source16: http://dev.inversepath.com/openssh-lpk/openssh-lpk_sun.schema
+# See http://mattfleming.com/node/190
+Source17: http://mattfleming.com/files/active/0/apple.schema
 URL: http://www.openldap.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
