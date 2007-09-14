@@ -2,7 +2,7 @@
 
 Name: openldap-extra-schemas
 Summary: Some extra schemas for OpenLDAP
-Version: 1.2
+Version: 1.3
 Release: %mkrel 1
 License: Several, see each file
 Group: Databases
