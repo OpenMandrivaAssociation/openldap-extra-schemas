@@ -36,6 +36,7 @@ Source16: http://dev.inversepath.com/openssh-lpk/openssh-lpk_sun.schema
 # See http://mattfleming.com/node/190
 Source17: http://mattfleming.com/files/active/0/apple.schema
 URL: http://www.openldap.org
+BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
 Requires: openldap-servers
 # add conflicts when the schemas have been removed from
