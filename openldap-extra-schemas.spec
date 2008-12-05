@@ -3,7 +3,7 @@
 Name: openldap-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 3
+Release: %mkrel 4
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -11,8 +11,6 @@ Source0: autofs.schema
 Source1: qmail.schema
 # from rfc2739, updated for schema correctness, used by evo for calendar attrs
 Source2: calendar.schema
-# from http://home.ntelos.net/%7Emasneyb/dhcp-3.0.5-ldap-patch
-Source3: dhcp.schema
 # from bind sdb_ldap page:http://www.venaas.no/ldap/bind-sdb/dnszone-schema.txt
 Source4: dnszone.schema
 # from evolution package
@@ -25,8 +23,6 @@ Source9: ldapns.schema
 Source10: rfc822-MailMember.schema
 # Get from samba source, examples/LDAP/samba.schema
 Source11: samba.schema
-# from README.LDAP in sudo (pre-1.6.8) CVS:
-Source12: sudo.schema
 # from MIT krb5-1.6.x:
 Source13: MIT-kerberos.schema
 Source14: rfc2307bis.schema
