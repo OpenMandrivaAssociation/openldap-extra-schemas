@@ -1,9 +1,10 @@
-%define schema_dir %{_datadir}/openldap/schema
+%{!?ol_major: %define ol_major %nil}
+%define schema_dir %{_datadir}/openldap%{ol_major}/schema
 
-Name: openldap-extra-schemas
+Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 4
+Release: %mkrel 5
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -38,6 +39,7 @@ Requires: openldap-servers
 # add conflicts when the schemas have been removed from
 # openldap-servers
 #Conflicts: openldap-server <= 1:2.3.30-1nl
+Conflicts: openldap%{ol_major}-servers < 2.4.17
 
 %description
 This package contains some extra schemas for use with the OpenLDAP server.
