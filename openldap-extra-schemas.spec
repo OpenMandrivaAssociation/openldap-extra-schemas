@@ -4,7 +4,7 @@
 Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 6
+Release: %mkrel 7
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -40,6 +40,7 @@ Source21: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/open
 Source22: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/qmailControl.schema
 Source23: sudo.schema
 Source24: dhcp.schema
+Source25: autofs.schema
 
 URL: http://www.openldap.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
@@ -62,6 +63,7 @@ install -m 0644 %{SOURCE1}  %{SOURCE2}  %{SOURCE4}  %{SOURCE5} \
 		%{SOURCE11} %{SOURCE13} %{SOURCE14} \
 		%{SOURCE15} %{SOURCE16} %{SOURCE17} %{SOURCE18} %{SOURCE19} \
 		%{SOURCE20} %{SOURCE21} %{SOURCE22} %{SOURCE23} %{SOURCE24} \
+		%{SOURCE25} \
 %{buildroot}%{schema_dir}
 
 %clean
