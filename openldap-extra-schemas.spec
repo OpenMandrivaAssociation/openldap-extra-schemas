@@ -1,10 +1,10 @@
-%{!?ol_major: %define ol_major %nil}
+%{!?ol_major: %global ol_major %nil}
 %define schema_dir %{_datadir}/openldap%{ol_major}/schema
 
 Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 5
+Release: %mkrel 6
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -32,6 +32,15 @@ Source15: http://dev.inversepath.com/openssh-lpk/openssh-lpk_openldap.schema
 Source16: http://dev.inversepath.com/openssh-lpk/openssh-lpk_sun.schema
 # See http://mattfleming.com/node/190
 Source17: http://mattfleming.com/files/active/0/apple.schema
+# from http://cvs.pld.org.pl/SOURCES/openldap-dhcp.schema
+Source18: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/netscape-profile.schema
+Source19: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/trust.schema
+Source20: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/dns.schema
+Source21: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/cron.schema
+Source22: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/qmailControl.schema
+Source23: sudo.schema
+Source24: dhcp.schema
+
 URL: http://www.openldap.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
@@ -47,7 +56,13 @@ This package contains some extra schemas for use with the OpenLDAP server.
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{schema_dir}
-install -m 0644 %{_sourcedir}/*.schema %{buildroot}%{schema_dir}
+#install -m 0644 %{_sourcedir}/*.schema %{buildroot}%{schema_dir}
+install -m 0644 %{SOURCE1}  %{SOURCE2}  %{SOURCE4}  %{SOURCE5} \
+		%{SOURCE6}  %{SOURCE7}  %{SOURCE8}  %{SOURCE9}  %{SOURCE10} \
+		%{SOURCE11} %{SOURCE13} %{SOURCE14} \
+		%{SOURCE15} %{SOURCE16} %{SOURCE17} %{SOURCE18} %{SOURCE19} \
+		%{SOURCE20} %{SOURCE21} %{SOURCE22} %{SOURCE23} %{SOURCE24} \
+%{buildroot}%{schema_dir}
 
 %clean
 rm -rf %{buildroot}
