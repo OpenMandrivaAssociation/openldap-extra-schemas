@@ -4,7 +4,7 @@
 Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 7
+Release: %mkrel 8
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -45,7 +45,7 @@ Source25: autofs.schema
 URL: http://www.openldap.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
-Requires: openldap-servers
+Requires: openldap%{ol_major}-servers
 # add conflicts when the schemas have been removed from
 # openldap-servers
 #Conflicts: openldap-server <= 1:2.3.30-1nl
