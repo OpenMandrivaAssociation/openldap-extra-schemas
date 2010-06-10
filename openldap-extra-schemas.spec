@@ -4,7 +4,7 @@
 Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 10
+Release: %mkrel 11
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
@@ -34,7 +34,8 @@ Source17: http://mattfleming.com/files/active/0/apple.schema
 # from http://cvs.pld.org.pl/SOURCES/openldap-dhcp.schema
 Source18: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/netscape-profile.schema
 Source19: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/trust.schema
-Source20: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/dns.schema
+# incomplete:
+#Source20: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/dns.schema
 Source21: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/cron.schema
 Source22: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/openldap2/schemas/qmailControl.schema
 Source23: sudo.schema
@@ -49,6 +50,9 @@ Source25: autofs.schema
 #  perl -p0e 's/\n(structuralObjectClass|entryUUID|creatorsName|createTimestamp|entryCSN|modifiersName|modifyTimestamp)[^\n]*//g;s/cn(=|: ){\d+}/cn$1/g;s/^(dn: cn=\w+)\n/$1,cn=schema,cn=config\n/g' *.ldif 
 # specifically: remove operational attributes, clean names to match original schema
 # names, add cn=schema,cn=config suffix required for adding over the wire
+
+# This is now done in the script below (catered for use in svn)
+Source99: convert.sh
 
 Source100: autofs.ldif
 Source101: qmail.ldif
