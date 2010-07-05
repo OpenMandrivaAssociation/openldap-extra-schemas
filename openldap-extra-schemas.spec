@@ -41,6 +41,8 @@ Source22: http://debian.jones.dk/debian/local/honda/pool-ldapv3/woody-jones/open
 Source23: sudo.schema
 Source24: dhcp.schema
 Source25: autofs.schema
+# From courier-authlib-ldap
+Source26: authldap.schema
 
 # LDIF versions of the same schema, created by:
 # 1)Making a minimal config with schema and their dependencies
@@ -77,7 +79,7 @@ Source122: qmailControl.ldif
 Source123: sudo.ldif
 Source124: dhcp.ldif
 Source125: autofs.ldif
-
+Source126: authldap.ldif
 
 
 URL: http://www.openldap.org
@@ -101,13 +103,13 @@ install -m 0644 %{SOURCE1}  %{SOURCE2}  %{SOURCE4}  %{SOURCE5} \
 		%{SOURCE11} %{SOURCE13} %{SOURCE14} \
 		%{SOURCE15} %{SOURCE17} %{SOURCE18} %{SOURCE19} \
 		%{SOURCE21} %{SOURCE22} %{SOURCE23} %{SOURCE24} \
-		%{SOURCE25} \
+		%{SOURCE25} %{SOURCE26} \
 		%{SOURCE101}  %{SOURCE102}  %{SOURCE104}  %{SOURCE105} \
 		%{SOURCE106}  %{SOURCE107}  %{SOURCE108}  %{SOURCE109}  %{SOURCE110} \
 		%{SOURCE111} %{SOURCE113} %{SOURCE114} \
 		%{SOURCE115} %{SOURCE118} \
 		%{SOURCE121} %{SOURCE122} %{SOURCE123} %{SOURCE124} \
-		%{SOURCE125} \
+		%{SOURCE125} %{SOURCE126} \
 %{buildroot}%{schema_dir}
 
 %clean
