@@ -1,0 +1,139 @@
+dn: cn=qmail,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: qmail
+olcAttributeTypes: {0}( 1.3.6.1.4.1.7914.1.2.1.1 NAME 'qmailUID' DESC 'UID of 
+ the user on the mailsystem' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115
+ .121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {1}( 1.3.6.1.4.1.7914.1.2.1.2 NAME 'qmailGID' DESC 'GID of 
+ the user on the mailsystem' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115
+ .121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {2}( 1.3.6.1.4.1.7914.1.2.1.3 NAME 'mailMessageStore' DESC 
+ 'Path to the maildir/mbox on the mail system' EQUALITY caseExactIA5Match SUBS
+ TR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} SIN
+ GLE-VALUE )
+olcAttributeTypes: {3}( 1.3.6.1.4.1.7914.1.2.1.4 NAME 'mailAlternateAddress' D
+ ESC 'Secondary (alias) mailaddresses for the same user' EQUALITY caseIgnoreIA
+ 5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.
+ 26{256} )
+olcAttributeTypes: {4}( 1.3.6.1.4.1.7914.1.2.1.6 NAME 'mailHost' DESC 'On whic
+ h qmail server the messagestore of this user is located.' EQUALITY caseIgnore
+ IA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.
+ 1.26{256} SINGLE-VALUE )
+olcAttributeTypes: {5}( 1.3.6.1.4.1.7914.1.2.1.7 NAME 'mailForwardingAddress' 
+ DESC 'Address(es) to forward all incoming messages to.' EQUALITY caseIgnoreIA
+ 5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.
+ 26{256} )
+olcAttributeTypes: {6}( 1.3.6.1.4.1.7914.1.2.1.8 NAME 'deliveryProgramPath' DE
+ SC 'Program to execute for all incoming mails.' EQUALITY caseExactIA5Match SU
+ BSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} )
+olcAttributeTypes: {7}( 1.3.6.1.4.1.7914.1.2.1.9 NAME 'qmailDotMode' DESC 'Int
+ erpretation of .qmail files: both, dotonly, ldaponly, ldapwithprog' EQUALITY 
+ caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{32} SINGLE-VALUE )
+olcAttributeTypes: {8}( 1.3.6.1.4.1.7914.1.2.1.10 NAME 'deliveryMode' DESC 'mu
+ lti field entries of: nolocal, noforward, noprogram, reply' EQUALITY caseIgno
+ reIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{32} )
+olcAttributeTypes: {9}( 1.3.6.1.4.1.7914.1.2.1.11 NAME 'mailReplyText' DESC 'A
+  reply text for every incoming message' EQUALITY caseIgnoreMatch SUBSTR caseI
+ gnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{4096} SINGLE-VALUE 
+ )
+olcAttributeTypes: {10}( 1.3.6.1.4.1.7914.1.2.1.12 NAME 'accountStatus' DESC '
+ The status of a user account: active, noaccess, disabled, deleted' EQUALITY c
+ aseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {11}( 1.3.6.1.4.1.7914.1.2.1.14 NAME 'qmailAccountPurge' DE
+ SC 'The earliest date when a mailMessageStore will be purged' EQUALITY numeri
+ cStringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.36 SINGLE-VALUE )
+olcAttributeTypes: {12}( 1.3.6.1.4.1.7914.1.2.1.15 NAME 'mailQuotaSize' DESC '
+ The size of space the user can have until further messages get bounced.' EQUA
+ LITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {13}( 1.3.6.1.4.1.7914.1.2.1.16 NAME 'mailQuotaCount' DESC 
+ 'The number of messages the user can have until further messages get bounced.
+ ' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {14}( 1.3.6.1.4.1.7914.1.2.1.17 NAME 'mailSizeMax' DESC 'Th
+ e maximum size of a single messages the user accepts.' EQUALITY integerMatch 
+ SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {15}( 1.3.6.1.4.1.7914.1.3.1.1 NAME 'dnmember' DESC 'Group 
+ member specified as distinguished name.' EQUALITY distinguishedNameMatch SYNT
+ AX 1.3.6.1.4.1.1466.115.121.1.12 )
+olcAttributeTypes: {16}( 1.3.6.1.4.1.7914.1.3.1.2 NAME 'rfc822member' DESC 'Gr
+ oup member specified as normal rf822 email address.' EQUALITY caseIgnoreIA5Ma
+ tch SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{
+ 256} )
+olcAttributeTypes: {17}( 1.3.6.1.4.1.7914.1.3.1.3 NAME 'filtermember' DESC 'Gr
+ oup member specified as ldap search filter.' EQUALITY caseIgnoreIA5Match SUBS
+ TR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{512} )
+olcAttributeTypes: {18}( 1.3.6.1.4.1.7914.1.3.1.4 NAME 'senderconfirm' DESC 'S
+ ender to Group has to answer confirmation email.' EQUALITY booleanMatch SYNTA
+ X 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUE )
+olcAttributeTypes: {19}( 1.3.6.1.4.1.7914.1.3.1.5 NAME 'membersonly' DESC 'Sen
+ der to Group must be group member itself.' EQUALITY booleanMatch SYNTAX 1.3.6
+ .1.4.1.1466.115.121.1.7 SINGLE-VALUE )
+olcAttributeTypes: {20}( 1.3.6.1.4.1.7914.1.3.1.6 NAME 'confirmtext' DESC 'Tex
+ t that will be sent with sender confirmation email.' EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{4096} 
+ SINGLE-VALUE )
+olcAttributeTypes: {21}( 1.3.6.1.4.1.7914.1.3.1.7 NAME 'dnmoderator' DESC 'Gro
+ up moderator specified as Distinguished name.' EQUALITY distinguishedNameMatc
+ h SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 )
+olcAttributeTypes: {22}( 1.3.6.1.4.1.7914.1.3.1.8 NAME 'rfc822moderator' DESC 
+ 'Group moderator specified as normal rfc822 email address.' EQUALITY caseIgno
+ reIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.12
+ 1.1.26{256} )
+olcAttributeTypes: {23}( 1.3.6.1.4.1.7914.1.3.1.9 NAME 'moderatortext' DESC 'T
+ ext that will be sent with request for moderation email.' EQUALITY caseIgnore
+ Match SUBSTR caseIgnoreSubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{4
+ 096} SINGLE-VALUE )
+olcAttributeTypes: {24}( 1.3.6.1.4.1.7914.1.3.1.10 NAME 'dnsender' DESC 'Allow
+ ed sender specified as distinguished name.' EQUALITY distinguishedNameMatch S
+ YNTAX 1.3.6.1.4.1.1466.115.121.1.12 )
+olcAttributeTypes: {25}( 1.3.6.1.4.1.7914.1.3.1.11 NAME 'rfc822sender' DESC 'A
+ llowed sender specified as normal rf822 email address.' EQUALITY caseIgnoreIA
+ 5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.
+ 26{256} )
+olcAttributeTypes: {26}( 1.3.6.1.4.1.7914.1.3.1.12 NAME 'filtersender' DESC 'A
+ llowed sender specified as ldap search filter.' EQUALITY caseIgnoreIA5Match S
+ UBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{512} 
+ )
+olcAttributeTypes: {27}( 1.3.6.1.4.1.7914.1.3.1.13 NAME 'bounceadmin' DESC 'rf
+ c822 email address where bounces should be sent to.' EQUALITY caseIgnoreIA5Ma
+ tch SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{
+ 256} )
+olcAttributeTypes: {28}( 1.3.6.1.4.1.7914.1.4.1.1 NAME 'qladnmanager' DESC '' 
+ EQUALITY distinguishedNameMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.12 )
+olcAttributeTypes: {29}( 1.3.6.1.4.1.7914.1.4.1.2 NAME 'qlaDomainList' DESC ''
+  EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6
+ .1.4.1.1466.115.121.1.26{256} )
+olcAttributeTypes: {30}( 1.3.6.1.4.1.7914.1.4.1.3 NAME 'qlaUidPrefix' DESC '' 
+ EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.3.6.
+ 1.4.1.1466.115.121.1.26{256} SINGLE-VALUE )
+olcAttributeTypes: {31}( 1.3.6.1.4.1.7914.1.4.1.4 NAME 'qlaQmailUid' DESC '' E
+ QUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {32}( 1.3.6.1.4.1.7914.1.4.1.5 NAME 'qlaQmailGid' DESC '' E
+ QUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {33}( 1.3.6.1.4.1.7914.1.4.1.6 NAME 'qlaMailMStorePrefix' D
+ ESC '' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX
+  1.3.6.1.4.1.1466.115.121.1.26{256} SINGLE-VALUE )
+olcAttributeTypes: {34}( 1.3.6.1.4.1.7914.1.4.1.7 NAME 'qlaMailQuotaSize' DESC
+  '' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {35}( 1.3.6.1.4.1.7914.1.4.1.8 NAME 'qlaMailQuotaCount' DES
+ C '' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE 
+ )
+olcAttributeTypes: {36}( 1.3.6.1.4.1.7914.1.4.1.9 NAME 'qlaMailSizeMax' DESC '
+ ' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {37}( 1.3.6.1.4.1.7914.1.4.1.10 NAME 'qlaMailHostList' DESC
+  '' EQUALITY caseIgnoreIA5Match SUBSTR caseIgnoreIA5SubstringsMatch SYNTAX 1.
+ 3.6.1.4.1.1466.115.121.1.26{256} )
+olcObjectClasses: {0}( 1.3.6.1.4.1.7914.1.2.2.1 NAME 'qmailUser' DESC 'QMail-L
+ DAP User' SUP top AUXILIARY MUST mail MAY ( uid $ mailMessageStore $ homeDire
+ ctory $ userPassword $ mailAlternateAddress $ qmailUID $ qmailGID $ mailHost 
+ $ mailForwardingAddress $ deliveryProgramPath $ qmailDotMode $ deliveryMode $
+  mailReplyText $ accountStatus $ qmailAccountPurge $ mailQuotaSize $ mailQuot
+ aCount $ mailSizeMax ) )
+olcObjectClasses: {1}( 1.3.6.1.4.1.7914.1.3.2.1 NAME 'qmailGroup' DESC 'QMail-
+ LDAP Group' SUP top AUXILIARY MUST ( mail $ mailAlternateAddress $ mailMessag
+ eStore ) MAY ( dnmember $ rfc822member $ filtermember $ senderconfirm $ membe
+ rsonly $ confirmtext $ dnmoderator $ rfc822moderator $ moderatortext $ dnsend
+ er $ rfc822sender $ filtersender $ bounceadmin ) )
+olcObjectClasses: {2}( 1.3.6.1.4.1.7914.1.4.2.1 NAME 'qldapAdmin' DESC 'QMail-
+ LDAP Subtree Admin' SUP top AUXILIARY MUST ( qlaDnManager $ qlaDomainList $ q
+ laMailMStorePrefix $ qlaMailHostList ) MAY ( qlaUidPrefix $ qlaQmailUid $ qla
+ QmailGid $ qlaMailQuotaSize $ qlaMailQuotaCount $ qlaMailSizeMax ) )

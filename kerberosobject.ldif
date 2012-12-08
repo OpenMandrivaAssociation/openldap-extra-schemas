@@ -1,0 +1,9 @@
+dn: cn=kerberosobject,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: kerberosobject
+olcAttributeTypes: {0}( 1.3.6.1.4.1.250.1.32 NAME ( 'krbName' 'kerberosName' )
+  DESC 'Kerberos Name' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115
+ .121.1.26 SINGLE-VALUE )
+olcObjectClasses: {0}( 1.3.6.1.4.1.2312.4.2.4 NAME 'kerberosSecurityObject' DE
+ SC 'A uid with an associated Kerberos principal' SUP top AUXILIARY MUST krbNa
+ me )

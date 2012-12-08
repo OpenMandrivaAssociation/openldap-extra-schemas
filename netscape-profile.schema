@@ -1,0 +1,66 @@
+#
+# An OpenLDAP schema for storing Netscape Roaming Profiles
+#
+# Version: 0.1
+# Hacked up by: David E. Storey <David.Storey@eyeo.com>
+# Created: Sometime in Septmber, 2000
+# Last Updated: December 1st, 2000
+#
+# ns-core
+
+attributetype ( 2.16.840.1.113730.3.1.70 NAME 'serverRoot'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 2.16.840.1.113730.3.1.76 NAME 'serverHostName'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+
+attributetype ( 2.16.840.1.113730.3.1.280 NAME 'nsServerPort'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+
+# ns-mcd-li
+
+# Attributes
+
+attributetype ( 2.16.840.1.113730.3.1.399 NAME 'nsLIPtrURL'
+	EQUALITY caseExactMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributetype ( 2.16.840.1.113730.3.1.400 NAME 'nsLIPrefs'
+	EQUALITY caseExactMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributetype ( 2.16.840.1.113730.3.1.401 NAME 'nsLIProfileName'
+	EQUALITY caseIgnoreMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributetype ( 2.16.840.1.113730.3.1.402 NAME 'nsLIData'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.5 )
+
+attributetype ( 2.16.840.1.113730.3.1.403 NAME 'nsLIElementType'
+	EQUALITY caseIgnoreMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributetype ( 2.16.840.1.113730.3.1.404 NAME 'nsLIServerType'
+	EQUALITY caseIgnoreMatch
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+attributetype ( 2.16.840.1.113730.3.1.405 NAME 'nsLIVersion'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+
+# Objectclasses
+
+objectclass ( 2.16.840.1.113730.3.2.74 NAME 'nsLIPtr' SUP top
+	AUXILIARY MAY ( nsLIPtrURL $ owner ) )
+
+objectclass ( 2.16.840.1.113730.3.2.75 NAME 'nsLIProfile' SUP top
+	STRUCTURAL MUST ( nsLIProfileName )
+	MAY ( nsLIPrefs $ uid $ owner ) )
+
+objectclass ( 2.16.840.1.113730.3.2.76 NAME 'nsLIProfileElement' SUP top
+	STRUCTURAL MUST ( nsLIElementType )
+	MAY ( owner $ nsLIData $ nsLIVersion ) )
+
+objectclass ( 2.16.840.1.113730.3.2.77 NAME 'nsLIServer' SUP top
+	AUXILIARY MUST ( serverHostName )
+	MAY ( description $ cn $ nsServerPort $ nsLIServerType $ serverRoot ) )
+

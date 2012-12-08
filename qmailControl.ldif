@@ -1,0 +1,152 @@
+dn: cn=qmailControl,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: qmailControl
+olcAttributeTypes: {0}( 1.3.6.1.4.1.7006.1.2.1.13 NAME 'badMailFrom' DESC 'Una
+ cceptable envelope sender addresses.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.
+ 6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: {1}( 1.3.6.1.4.1.7006.1.2.1.14 NAME 'bounceFrom' DESC 'Boun
+ ce username' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {2}( 1.3.6.1.4.1.7006.1.2.1.15 NAME 'bounceHost' DESC 'Boun
+ ce host' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SIN
+ GLE-VALUE )
+olcAttributeTypes: {3}( 1.3.6.1.4.1.7006.1.2.1.16 NAME 'concurrencyLocal' DESC
+  'Maximum number of simultaneous local delivery attempts.' EQUALITY integerMa
+ tch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {4}( 1.3.6.1.4.1.7006.1.2.1.17 NAME 'concurrencyRemote' DES
+ C 'Maximum number of simultaneous remote delivery attempts.' EQUALITY integer
+ Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {5}( 1.3.6.1.4.1.7006.1.2.1.18 NAME 'defaultDomain' DESC 'D
+ efault domain name.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.
+ 121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {6}( 1.3.6.1.4.1.7006.1.2.1.19 NAME 'defaultHost' DESC 'Def
+ ault host name.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.
+ 1.26 SINGLE-VALUE )
+olcAttributeTypes: {7}( 1.3.6.1.4.1.7006.1.2.1.20 NAME 'dataBytes' DESC 'Maxim
+ um number of bytes allowed in a message, or 0 for no limit.' EQUALITY integer
+ Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {8}( 1.3.6.1.4.1.7006.1.2.1.21 NAME 'doubleBounceHost' DESC
+  'Double-bounce host.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.11
+ 5.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {9}( 1.3.6.1.4.1.7006.1.2.1.22 NAME 'doubleBounceTo' DESC '
+ User to receive double-bounces.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4
+ .1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {10}( 1.3.6.1.4.1.7006.1.2.1.23 NAME 'envNoAtHost' DESC 'Pr
+ esumed domain name for addresses without @ signs.' EQUALITY caseIgnoreIA5Matc
+ h SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {11}( 1.3.6.1.4.1.7006.1.2.1.24 NAME 'heloHost' DESC 'Host 
+ name used to say hello to the remote SMTP server.' EQUALITY caseIgnoreIA5Matc
+ h SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {12}( 1.3.6.1.4.1.7006.1.2.1.25 NAME 'idHost' DESC 'Host na
+ me for Message-IDs.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.
+ 121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {13}( 1.3.6.1.4.1.7006.1.2.1.26 NAME 'localIpHost' DESC 'Re
+ placement host name for local IP addresses.' EQUALITY caseIgnoreIA5Match SYNT
+ AX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {14}( 1.3.6.1.4.1.7006.1.2.1.27 NAME 'locals' DESC 'List of
+  domain names that the current host receives mail for.' EQUALITY caseIgnoreIA
+ 5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: {15}( 1.3.6.1.4.1.7006.1.2.1.28 NAME 'moreRcptHosts' DESC '
+ Extra allowed RCPT domains.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1
+ 466.115.121.1.26 )
+olcAttributeTypes: {16}( 1.3.6.1.4.1.7006.1.2.1.29 NAME 'percentHack' DESC 'Li
+ st of domain names where the percent hack is applied.' EQUALITY caseIgnoreIA5
+ Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: {17}( 1.3.6.1.4.1.7006.1.2.1.30 NAME 'plusDomain' DESC 'Plu
+ s domain name.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1
+ .26 SINGLE-VALUE )
+olcAttributeTypes: {18}( 1.3.6.1.4.1.7006.1.2.1.31 NAME 'qmqpServers' DESC 'IP
+  addresses of QMQP servers.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1
+ 466.115.121.1.26{128} )
+olcAttributeTypes: {19}( 1.3.6.1.4.1.7006.1.2.1.32 NAME 'queueLifetime' DESC '
+ Number of seconds a message can stay in the queue.' EQUALITY integerMatch SYN
+ TAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {20}( 1.3.6.1.4.1.7006.1.2.1.33 NAME 'rcptHosts' DESC 'Allo
+ wed RCPT domains.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.12
+ 1.1.26 )
+olcAttributeTypes: {21}( 1.3.6.1.4.1.7006.1.2.1.34 NAME 'smtpGreeting' DESC 'S
+ MTP greeting message.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.11
+ 5.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {22}( 1.3.6.1.4.1.7006.1.2.1.35 NAME 'smtpRoutes' DESC 'Art
+ ificial SMTP routes.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115
+ .121.1.26 )
+olcAttributeTypes: {23}( 1.3.6.1.4.1.7006.1.2.1.36 NAME 'timeoutConnect' DESC 
+ 'Number of seconds qmail-remote will wait for the remote SMTP server to accep
+ t a connection.' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 S
+ INGLE-VALUE )
+olcAttributeTypes: {24}( 1.3.6.1.4.1.7006.1.2.1.37 NAME 'timeoutRemote' DESC '
+ Number of seconds qmail-remote will wait for each response from the remote SM
+ TP server.' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE
+ -VALUE )
+olcAttributeTypes: {25}( 1.3.6.1.4.1.7006.1.2.1.38 NAME 'timeoutSmtpd' DESC 'T
+ imeout for each new buffer of data from the remote SMTP client.' EQUALITY int
+ egerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {26}( 1.3.6.1.4.1.7006.1.2.1.39 NAME 'virtualDomains' DESC 
+ 'List of virtual users or domains.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.
+ 1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: {27}( 1.3.6.1.4.1.7006.1.2.1.40 NAME 'ldapBaseDN' DESC 'The
+  base DN from where the search in the LDAP tree begins.' SUP distinguishedNam
+ e SINGLE-VALUE )
+olcAttributeTypes: {28}( 1.3.6.1.4.1.7006.1.2.1.41 NAME 'ldapLogin' DESC 'User
+ name for the LDAP server connection.' SUP distinguishedName SINGLE-VALUE )
+olcAttributeTypes: {29}( 1.3.6.1.4.1.7006.1.2.1.42 NAME 'ldapPassword' DESC 'P
+ assword for the LDAP server connection.' EQUALITY caseExactMatch SYNTAX 1.3.6
+ .1.4.1.1466.115.121.1.15 SINGLE-VALUE )
+olcAttributeTypes: {30}( 1.3.6.1.4.1.7006.1.2.1.43 NAME 'ldapLocalDelivery' DE
+ SC 'If on do a lookup on the local passwd file.' EQUALITY integerMatch SYNTAX
+  1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {31}( 1.3.6.1.4.1.7006.1.2.1.44 NAME 'ldapRebind' DESC 'Use
+  the possibility of rebinding to the ldap-server to compare pop3 and imap pas
+ swords.' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {32}( 1.3.6.1.4.1.7006.1.2.1.45 NAME 'ldapCluster' DESC 'Tu
+ rn clustering on and off.' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE 
+ )
+olcAttributeTypes: {33}( 1.3.6.1.4.1.7006.1.2.1.46 NAME 'ldapDefaultQuota' DES
+ C 'The default amount of disk space the user can use.' EQUALITY caseExactIA5M
+ atch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {34}( 1.3.6.1.4.1.7006.1.2.1.47 NAME 'ldapDefaultDotMode' D
+ ESC 'The default interpretation of .qmail files' EQUALITY caseIgnoreIA5Match 
+ SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {35}( 1.3.6.1.4.1.7006.1.2.1.48 NAME 'ldapMessageStore' DES
+ C 'The default prefix for pathes in mailMessageStore.' EQUALITY caseExactIA5M
+ atch SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {36}( 1.3.6.1.4.1.7006.1.2.1.49 NAME 'ldapUid' DESC 'The de
+ fault UID used in virtual users environments.' EQUALITY integerMatch SYNTAX 1
+ .3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {37}( 1.3.6.1.4.1.7006.1.2.1.50 NAME 'ldapGid' DESC 'The de
+ fault GID used in virtual users environments.' EQUALITY integerMatch SYNTAX 1
+ .3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {38}( 1.3.6.1.4.1.7006.1.2.1.51 NAME 'customBounceText' DES
+ C 'Additional custom text in bounce messages.' EQUALITY caseIgnoreMatch SYNTA
+ X 1.3.6.1.4.1.1466.115.121.1.15{1024} SINGLE-VALUE )
+olcAttributeTypes: {39}( 1.3.6.1.4.1.7006.1.2.1.52 NAME 'quotaWarning' DESC 'C
+ ustom text in quota warning message.' EQUALITY caseIgnoreMatch SYNTAX 1.3.6.1
+ .4.1.1466.115.121.1.15{1024} SINGLE-VALUE )
+olcAttributeTypes: {40}( 1.3.6.1.4.1.7006.1.2.1.53 NAME 'tarpitCount' DESC 'Nu
+ mber of RCPT TOs you accept before you start tarpitting.' EQUALITY integerMat
+ ch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {41}( 1.3.6.1.4.1.7006.1.2.1.54 NAME 'tarpitDelay' DESC 'Nu
+ mber of seconds of delay to introduce after each subsequent RCPT TO' EQUALITY
+  integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+olcAttributeTypes: {42}( 1.3.6.1.4.1.7006.1.2.1.55 NAME 'badRcptTo' DESC 'List
+  of recipient addresses that should be rejected.' EQUALITY caseIgnoreIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 )
+olcAttributeTypes: {43}( 1.3.6.1.4.1.7006.1.2.1.56 NAME 'dirMaker' DESC 'Absol
+ ute path to your program/script that creates missing homedirs.' EQUALITY case
+ ExactIA5Match SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcAttributeTypes: {44}( 1.3.6.1.4.1.7006.1.2.1.57 NAME 'ldapServer' DESC 'LDA
+ P Server address.' EQUALITY caseIgnoreIA5Match SYNTAX 1.3.6.1.4.1.1466.115.12
+ 1.1.26 SINGLE-VALUE )
+olcAttributeTypes: {45}( 1.3.6.1.4.1.7006.1.2.1.58 NAME 'tlsClients' DESC 'Thi
+ s email-address is logged in the headers.' EQUALITY caseIgnoreIA5Match SYNTAX
+  1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUE )
+olcObjectClasses: {0}( 1.3.6.1.4.1.7006.1.2.2.2 NAME 'qmailControl' DESC 'QMai
+ l-LDAP Server Control Information' SUP top AUXILIARY MUST cn MAY ( badMailFro
+ m $ bounceFrom $ bounceHost $ concurrencyLocal $ concurrencyRemote $ defaultD
+ omain $ defaultHost $ dataBytes $ doubleBounceHost $ doubleBounceTo $ envNoAt
+ Host $ heloHost $ idHost $ localIpHost $ locals $ moreRcptHosts $ percentHack
+  $ plusDomain $ qmqpServers $ queueLifetime $ rcptHosts $ smtpGreeting $ smtp
+ Routes $ timeoutConnect $ timeoutRemote $ timeoutSmtpd $ virtualDomains $ lda
+ pBaseDN $ ldapLogin $ ldapPassword $ ldapLocalDelivery $ ldapRebind $ ldapClu
+ ster $ ldapDefaultQuota $ ldapDefaultDotMode $ ldapMessageStore $ ldapUid $ l
+ dapGid $ customBounceText $ quotaWarning $ tarpitCount $ tarpitDelay $ badRcp
+ tTo $ dirMaker $ ldapServer $ tlsClients ) )

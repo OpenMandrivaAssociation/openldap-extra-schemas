@@ -1,0 +1,75 @@
+#
+# cron directory schema v0.6
+#
+# Created: February 17, 2001
+# Author: David E. Storey <David.Storey@eyeo.com>
+#
+# This is an experimental schema.
+# There are no known daemons that support this schema.
+# (and if there are, please tell me)
+#
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.1
+	NAME 'cronHost'
+	DESC 'host(s) to run crontab'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+
+#
+# values in a crontab that are seperated by a ',' should map
+# to multiple values of the corresponding attributetype
+# in this schema.
+#
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.2
+	NAME 'cronMinute'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.3
+	NAME 'cronHour'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.4
+	NAME 'cronDay'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.5
+	NAME 'cronMonth'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.6
+	NAME 'cronDayOfWeek'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.44 )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.7
+	NAME 'cronCommand'
+	DESC 'Command shell string to be executed'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 
+	SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.7006.1.3.1.8
+	NAME 'cronActive'
+	DESC 'Denotes the active/inactive state of the cron entry'
+	SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+	SINGLE-VALUE )
+
+#
+# cronEntry
+#
+# what should cron daemons do with an empty cronHost attribute?
+#
+# cron[Minute|Hour|Day|Month|DayOfWeek] are optional.
+# Absence of any of these attributes assumes a value of '*'.
+#
+objectclass ( 1.3.6.1.4.1.7006.1.3.2.1
+	NAME 'cronEntry'
+	SUP top
+	STRUCTURAL
+	MUST ( cn $ cronCommand $ uid )
+	MAY ( cronHost $
+		cronMinute $
+		cronHour $
+		cronDay $
+		cronMonth $
+		cronDayOfWeek $
+		owner $
+		description ) )
