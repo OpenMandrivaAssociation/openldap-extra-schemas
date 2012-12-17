@@ -81,7 +81,6 @@ Source126: authldap.ldif
 
 
 URL: http://www.openldap.org
-BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(id -u -n)
 BuildArch: noarch
 Requires: openldap%{ol_major}-servers
 # add conflicts when the schemas have been removed from
@@ -110,101 +109,6 @@ install -m 0644 %{SOURCE1}  %{SOURCE2}  %{SOURCE4}  %{SOURCE5} \
 		%{SOURCE126} \
 %{buildroot}%{schema_dir}
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{schema_dir}/*.schema
 %{schema_dir}/*.ldif
-
-
-
-%changelog
-* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.3-13mdv2011.0
-+ Revision: 666956
-- mass rebuild
-
-  + Buchan Milne <bgmilne@mandriva.org>
-    - Update ldapns.schema to the version used by OpenLDAPs nssov overlay
-    - Fix schema conversion script (exit on slaptest failure, skip qmail schema for now)
-
-* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.3-12mdv2011.0
-+ Revision: 607019
-- rebuild
-
-  + Buchan Milne <bgmilne@mandriva.org>
-    - Add authldap.schema (from courier-authlib-ldap) and authldap.ldif (convert from it)
-
-* Fri Jun 11 2010 Buchan Milne <bgmilne@mandriva.org> 1.3-11mdv2010.1
-+ Revision: 547866
-- Update dnszone and dhcp schema (mmc needs newer versions)
-- Drop dns.schema, it is incomplete and unused
-- Add script to automate schema to ldif conversion
-- Comment namedObject in rfc2307bis.schema, conflicts with kolab
-- Sync other minor schema changes to ldif
-
-* Fri Apr 16 2010 Buchan Milne <bgmilne@mandriva.org> 1.3-10mdv2010.1
-+ Revision: 535500
-- Ship LDIF format versions suitable for use with back-config after conversion
-- Drop openssh-lpk_sun.schema, we already have an LDIF version for OpenLDAP
-- Fix schema errors in netscape-profile and qmailControl
-
-* Mon Jan 04 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.3-9mdv2010.1
-+ Revision: 486148
-- update LPK schemas (attributes are now optional)
-
-  + Buchan Milne <bgmilne@mandriva.org>
-    - Version openldap-servers require by ol_major
-
-* Sun Jul 19 2009 Buchan Milne <bgmilne@mandriva.org> 1.3-7mdv2010.0
-+ Revision: 397984
-- Add autofs schema
-
-* Sun Jul 19 2009 Buchan Milne <bgmilne@mandriva.org> 1.3-6mdv2010.0
-+ Revision: 397916
-- Migrate the rest of the non-core schema out
-- Fix versioning
-
-* Sun Jul 19 2009 Buchan Milne <bgmilne@mandriva.org> 1.3-5mdv2010.0
-+ Revision: 397235
-- Allow building a package for versioned openldap-servers package
-- Conflict with openldap-servers which ships the same schema files
-
-* Fri Dec 05 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.3-4mdv2009.1
-+ Revision: 310796
-- drop schemas conflicting with openldap--server package (fix #38971):
-- sudo schema (only cosmetics differences)
-- dhcp schema (actual differences, but the alternate one is already shipped in dhcp server package)
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-    - kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-  + Buchan Milne <bgmilne@mandriva.org>
-    - add hdb.schema from http://people.su.se/~lha/patches/heimdal/hdb.schema
-    - Add apple.schema from http://mattfleming.com/node/190
-
-  + Andreas Hasenack <andreas@mandriva.com>
-    - fix indentation error in sudo.schema
-
-* Mon Jul 23 2007 Andreas Hasenack <andreas@mandriva.com> 1.2-1mdv2008.0
-+ Revision: 54799
-- updated dhcp schema from version 3.0.5 of the patch
-
-* Fri Jun 01 2007 Andreas Hasenack <andreas@mandriva.com> 1.1-1mdv2008.0
-+ Revision: 34339
-- added lpk schemas (openssh + ldap)
-
-* Thu May 03 2007 Andreas Hasenack <andreas@mandriva.com> 1.0-2mdv2008.0
-+ Revision: 22052
-- added rfc2307bis.schema
-
-
-* Wed Jan 03 2007 Andreas Hasenack <andreas@mandriva.com> 1.0-1mdv2007.0
-+ Revision: 103813
-- Import openldap-extra-schemas
-
