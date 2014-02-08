@@ -4,7 +4,7 @@
 Name: openldap%{ol_major}-extra-schemas
 Summary: Some extra schemas for OpenLDAP
 Version: 1.3
-Release: %mkrel 14
+Release: 15
 License: Several, see each file
 Group: Databases
 Source0: autofs.schema
