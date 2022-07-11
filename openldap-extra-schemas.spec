@@ -3,8 +3,8 @@
 
 Summary:	Some extra schemas for OpenLDAP
 Name:		openldap%{ol_major}-extra-schemas
-Version:	1.3
-Release:	24
+Version:	4.3
+Release:	1
 License:	Several, see each file
 Group:		Databases
 Url:		http://www.openldap.org
