@@ -7,7 +7,7 @@ Version:	4.3
 Release:	2
 License:	Several, see each file
 Group:		Databases
-Url:		http://www.openldap.org
+Url:		https://www.openldap.org
 Source0:	autofs.schema
 # Get from qmail-ldap patch (http://www.nrg4u.com/qmail/)
 Source1:	qmail.schema
